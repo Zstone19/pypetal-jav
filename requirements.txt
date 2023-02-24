@@ -2,4 +2,5 @@ numpy
 astropy
 matplotlib
 scipy
+corner
 javelin @ git+https://github.com/nye17/javelin.git
