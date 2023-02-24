@@ -1,0 +1,5 @@
+numpy
+astropy
+matplotlib
+scipy
+javelin @ git+https://github.com/nye17/javelin.git
