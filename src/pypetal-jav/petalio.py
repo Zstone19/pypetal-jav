@@ -1,20 +1,29 @@
+import errno
 import os
 import numpy as np
 
+
+
+def makedirs(dirname, exist_ok=False):
+    try:
+        os.makedirs(dirname)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
 
 
 def make_directories(output_dir, line_names, together):
 
     #Create subdirectories for each line and javelin
     for i in range(len(line_names)):
-        os.makedirs( output_dir + line_names[i], exist_ok=True )
+        makedirs( output_dir + line_names[i], exist_ok=True )
 
     for i in range(len(line_names)-1):
 
         if together:
-            os.makedirs( output_dir + 'javelin/', exist_ok=True )
+            makedirs( output_dir + 'javelin/', exist_ok=True )
         else:
-            os.makedirs( output_dir + line_names[i+1] + '/javelin', exist_ok=True )
+            makedirs( output_dir + line_names[i+1] + '/javelin', exist_ok=True )
 
     return
 
