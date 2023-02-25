@@ -3,10 +3,10 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pypetal-jav.defaults as defaults
-import pypetal-jav.plotting as plotting
-import pypetal-jav.utils as utils
-from pypetal-jav.petalio import write_data
+import pypetal_jav.defaults as defaults
+import pypetal_jav.plotting as plotting
+import pypetal_jav.utils as utils
+from pypetal_jav.petalio import write_data
 
 
 def javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs, kwargs):

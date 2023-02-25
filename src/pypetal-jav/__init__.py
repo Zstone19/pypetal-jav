@@ -5,5 +5,5 @@ from .pipeline import *
 from .plotting import *
 from .utils import *
 
-__all__ = ["pypetal-jav.defaults", "pypetal-jav.modules", "pypetal-jav.petalio",
-           "pypetal-jav.pipeline", "pypetal-jav.plotting", "pypetal-jav.utils"]
+__all__ = ["pypetal_jav.defaults", "pypetal_jav.modules", "pypetal_jav.petalio",
+           "pypetal_jav.pipeline", "pypetal_jav.plotting", "pypetal_jav.utils"]

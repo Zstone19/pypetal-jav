@@ -3,12 +3,12 @@ import os
 import numpy as np
 from astropy.table import Table
 
-import pypetal-jav.detrending as dtr
-import pypetal-jav.modules as modules
+import pypetal_jav.detrending as dtr
+import pypetal_jav.modules as modules
 
-from pypetal-jav import defaults, weighting
-from pypetal-jav.petalio import make_directories, write_data
-from pypetal-jav.utils import fix_jav_params_after_ufj
+from pypetal_jav import defaults, weighting
+from pypetal_jav.petalio import make_directories, write_data
+from pypetal_jav.utils import fix_jav_params_after_ufj
 
 
 
