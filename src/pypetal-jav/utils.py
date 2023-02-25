@@ -70,6 +70,31 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
 
 
 
+def get_javelin_filenames(output_chain, output_burn, output_logp, prefix, output_dir=None):
+    tot_fnames = np.full(3, None)
+
+    if output_chain:
+        tot_fnames[0] = 'chain_' + prefix + '.txt'
+
+    if output_burn:
+        tot_fnames[1] = 'burn_' + prefix + '.txt'
+
+    if output_logp:
+        tot_fnames[2] = 'logp_' + prefix + '.txt'
+
+    if output_dir is not None:
+        if output_dir[-1] != r'/':
+            output_dir += r'/'
+
+        for i in range(len(tot_fnames)):
+
+            if tot_fnames[i] is not None:
+                tot_fnames[i] = output_dir + tot_fnames[i]
+
+    return tot_fnames
+
+
+
 def run_javelin(cont_fname, line_fnames, line_names,
                 rm_type='spec',
                 lagtobaseline=0.3, laglimit='baseline',
