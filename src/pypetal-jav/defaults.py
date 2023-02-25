@@ -1,6 +1,13 @@
 import numpy as np
 
 
+
+def merge_dicts(x, y):
+    z = x.copy()
+    z.update(y)
+    return z
+
+
 def set_javelin(input_args, fnames):
 
     default_kwargs = {
@@ -20,7 +27,7 @@ def set_javelin(input_args, fnames):
         'rm_type': 'spec'
     }
 
-    params = { **default_kwargs, **input_args }
+    params = merge_dicts(default_kwargs, input_args)
 
     lagtobaseline = params['lagtobaseline']
     fixed = params['fixed']
