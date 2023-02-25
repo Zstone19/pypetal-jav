@@ -1,60 +1,38 @@
 import os
+import warnings
 
 import numpy as np
 from astropy.table import Table
 
 import pypetal_jav.modules as modules
 
-from pypetal_jav import defaults, weighting
-from pypetal_jav.petalio import make_directories, write_data
+from pypetal_jav import defaults
+from pypetal_jav.petalio import write_data
 from pypetal_jav.utils import fix_jav_params_after_ufj
 
 
 
-def run_pipeline(output_dir, arg2, line_names=None,
+def run_pipeline(output_dir, line_names,
                  javelin_params={}, use_for_javelin=False, 
                  drw_rej_res={}, **kwargs):
 
 
     output_dir = os.path.abspath(output_dir) + r'/'
 
-    if arg2 is None:
-        raise Exception('Please provide a list of light curve filenames or the light curves themselves')
+    #pyPetal will create the output directory if it doesn't exist
+    #Also will create the javelin subdirectories
+    if not os.path.exists(output_dir):
+        raise Exception('This assumes that pypetal.pipeline.run_pipeline has already been run.')
 
 
-    if not isinstance(arg2[0], str):
-        os.makedirs( output_dir + 'input_lcs/', exist_ok=True )
-        fnames = []
-
-        for i in range( len(arg2) ):
-
-            if i == 0:
-                name = 'continuum'
-            else:
-                name = 'line{}'.format(i+1)
-
-            write_data( arg2[i], output_dir + 'input_lcs/' + name + '.dat' )
-            fnames.append( output_dir + 'input_lcs/' + name + '.dat' )
-
-        fnames = np.array(fnames)
-        kwargs['file_fmt'] = 'csv'
+    #Look for light curve filenames
+    line_fnames = []
+    if output_dir + 'processed_lcs/' in glob.glob(output_dir +'*/'):
+        cont_fname = output_dir + 'processed_lcs/' + line_names[0] + '_data.dat'
+        line_fnames = [output_dir + 'processed_lcs/' + name + '_data.dat' for name in line_names[1:]]
     else:
-        fnames = arg2
-
-
-
-
-    if len(fnames) < 2:
-        print('ERROR: Requires at least two light curves to run pipeline.')
-        return {}
-
-    if len(line_names) != len(fnames):
-        print('ERROR: Must have the same number of line names as light curves.')
-        return {}
-
-
-    cont_fname = fnames[0]
-    line_fnames = fnames[1:]
+        cont_fname = output_dir + 'light_curves/' + line_names[0] + '.dat'
+        line_fnames = [output_dir + 'light_curves/' + name + '.dat' for name in line_names[1:]]
 
     if type(line_fnames) is str:
         line_fnames = [line_fnames]
