@@ -2,6 +2,24 @@ import numpy as np
 
 
 
+
+def make_directories(output_dir, line_names, together):
+
+    #Create subdirectories for each line and javelin
+    for i in range(len(line_names)):
+        os.makedirs( output_dir + line_names[i], exist_ok=True )
+
+    for i in range(len(line_names)-1):
+
+        if together:
+            os.makedirs( output_dir + 'javelin/', exist_ok=True )
+        else:
+            os.makedirs( output_dir + line_names[i+1] + '/javelin', exist_ok=True )
+
+    return
+
+
+
 def write_data(arr, fname, header=None):
 
     arr = np.array(arr, dtype=object)

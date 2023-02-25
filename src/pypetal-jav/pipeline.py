@@ -7,12 +7,12 @@ from astropy.table import Table
 import pypetal_jav.modules as modules
 
 from pypetal_jav import defaults
-from pypetal_jav.petalio import write_data
+from pypetal_jav.petalio import make_directories, write_data
 from pypetal_jav.utils import fix_jav_params_after_ufj
 
 
 
-def run_pipeline(output_dir, line_names,
+def run_pipeline(output_dir, line_names=None,
                  javelin_params={}, use_for_javelin=False, 
                  drw_rej_res={}, **kwargs):
 
@@ -23,6 +23,10 @@ def run_pipeline(output_dir, line_names,
     #Also will create the javelin subdirectories
     if not os.path.exists(output_dir):
         raise Exception('This assumes that pypetal.pipeline.run_pipeline has already been run.')
+
+    if line_names is None:
+        light_curve_fnames = glob.glob(output_dir + 'light_curves/*.dat')
+        line_names = [os.path.basename(fname).split('.')[0] for fname in light_curve_fnames]
 
 
     #Look for light curve filenames
@@ -41,10 +45,11 @@ def run_pipeline(output_dir, line_names,
     #Read in general kwargs
     general_kwargs = defaults.set_general(kwargs, fnames)
 
-
-
     #Get "together"
     _, fixed, p_fix, _, _, _, _, _, _, _, _, _, together, rm_type = defaults.set_javelin(javelin_params, fnames)
+
+
+    make_directories(output_dir, line_names, )
 
 
     javelin_params['fixed'] = fixed
