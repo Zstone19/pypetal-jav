@@ -34,8 +34,6 @@ def javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs,
                                                          np.hstack([ [cont_fname], line_fnames ])
                                                          )
 
-    threads = 1
-
     #--------------------------------------------------
     #Account for parameters if javelin['together'] = False
     if not together:
