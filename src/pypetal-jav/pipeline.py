@@ -3,7 +3,6 @@ import os
 import numpy as np
 from astropy.table import Table
 
-import pypetal_jav.detrending as dtr
 import pypetal_jav.modules as modules
 
 from pypetal_jav import defaults, weighting
