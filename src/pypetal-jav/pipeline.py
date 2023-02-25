@@ -32,11 +32,13 @@ def run_pipeline(output_dir, line_names=None,
     #Look for light curve filenames
     line_fnames = []
     if output_dir + 'processed_lcs/' in glob.glob(output_dir +'*/'):
-        cont_fname = output_dir + 'processed_lcs/' + line_names[0] + '_data.dat'
-        line_fnames = [output_dir + 'processed_lcs/' + name + '_data.dat' for name in line_names[1:]]
+        fnames = [output_dir + 'processed_lcs/' + name + '_data.dat' for name in line_names]
     else:
-        cont_fname = output_dir + 'light_curves/' + line_names[0] + '.dat'
-        line_fnames = [output_dir + 'light_curves/' + name + '.dat' for name in line_names[1:]]
+        fnames = [output_dir + 'light_curves/' + name + '.dat' for name in line_names]
+
+    cont_fname = fnames[0]
+    line_fnames = fnames[1:]
+
 
     if type(line_fnames) is str:
         line_fnames = [line_fnames]
