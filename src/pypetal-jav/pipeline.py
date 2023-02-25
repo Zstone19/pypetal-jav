@@ -1,5 +1,5 @@
 import os
-import warnings
+import glob
 
 import numpy as np
 from astropy.table import Table
@@ -49,7 +49,7 @@ def run_pipeline(output_dir, line_names=None,
     _, fixed, p_fix, _, _, _, _, _, _, _, _, _, together, rm_type = defaults.set_javelin(javelin_params, fnames)
 
 
-    make_directories(output_dir, line_names, )
+    make_directories(output_dir, line_names, together)
 
 
     javelin_params['fixed'] = fixed
