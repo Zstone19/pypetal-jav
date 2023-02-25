@@ -27,7 +27,7 @@ setup(
     maintainer_email=EMAIL,
     license='MIT',
     install_requires=REQUIREMENTS,
-    python_requires='>=3.8,<3.11',
+    python_requires='<3.0',
     packages=['pypetal-jav'],
     package_dir={'pypetal-jav':'./src/pypetal-jav'},
     include_package_data=True
