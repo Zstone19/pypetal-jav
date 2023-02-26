@@ -32,9 +32,7 @@ def javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs,
     lagtobaseline, fixed, p_fix, subtract_mean, \
         nwalkers, nburn, nchain, output_chains, \
             output_burn, output_logp, nbin, metric, \
-                together, rm_type = defaults.set_javelin( kwargs,
-                                                         np.hstack([ [cont_fname], line_fnames ])
-                                                         )
+                together, rm_type = defaults.set_javelin( kwargs, len(line_fnames)+1 )
 
     #--------------------------------------------------
     #Account for parameters if javelin['together'] = False
