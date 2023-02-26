@@ -104,6 +104,7 @@ def run_javelin(cont_fname, line_fnames, line_names,
                 nbin=50, verbose=False, plot=False):
 
     """Run JAVELIN on a set of light curves.
+
     Parameters
     ----------
     cont_fname : str
@@ -146,6 +147,7 @@ def run_javelin(cont_fname, line_fnames, line_names,
         If ``True``, will output the MCMC burn-in chains to a file. Default is ``False``.
     output_logp : bool, optional
         If ``True``, will output the MCMC log-probability values to a file. Default is ``False``.
+
     Returns
     -------
     res : dict
@@ -214,7 +216,7 @@ def run_javelin(cont_fname, line_fnames, line_names,
 
         cmod = Cont_Model(con_dat)
         cmod.do_mcmc(fixed=fixed_cont, p_fix=p_fix_cont,
-                    nwalkers=nwalkers, nburn=nburn, nchain=nchain, threads=threads,
+                    nwalkers=nwalkers, nburn=nburn, nchain=nchain, threads=1,
                     fchain=fnames[0], fburn=fnames[1], flogp=fnames[2],
                     set_verbose=verbose)
 
