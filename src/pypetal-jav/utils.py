@@ -2,6 +2,8 @@ import glob
 import os
 
 import astropy.units as u
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 
 import numpy as np
