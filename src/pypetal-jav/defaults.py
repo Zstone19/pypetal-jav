@@ -188,7 +188,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
             'fixed': fixed,
             'p_fix': p_fix,
             'subtract_mean': subtract_mean,
-            'nwalkers': nwalkers,
+            'nwalker': nwalkers,
             'nburn': nburn,
             'nchain': nchain,
             'output_chains': output_chains,
