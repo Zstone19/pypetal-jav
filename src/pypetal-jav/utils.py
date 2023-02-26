@@ -52,12 +52,16 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
 
 
     else:        
-        if javelin_params['fixed'] is None:
-            fixed_tot = np.zeros( ( nlc-1, (nlc-1)*ntophat ) )
-            p_fix_tot = np.zeros( ( nlc-1, (nlc-1)*ntophat ) )
-        else:
-            fixed_tot = np.array(javelin_params['fixed'])
-            p_fix_tot = np.array(javelin_params['p_fix'])
+        fixed_tot = np.zeros( ( nlc-1, (nlc-1)*ntophat ) )
+        p_fix_tot = np.zeros( ( nlc-1, (nlc-1)*ntophat ) )
+
+        if javelin_params['fixed'] is not None:
+            for i in range(nlc-1):
+                if javelin_params['fixed'][i] is None:
+                    continue
+                else:
+                    fixed_tot[i,:] = javelin_params['fixed'][i]
+                    p_fix_tot[i,:] = javelin_params['p_fix'][i]
 
 
         for i in range(nlc-1):
