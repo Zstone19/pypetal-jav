@@ -48,7 +48,7 @@ def run_pipeline(output_dir, line_names=None,
     general_kwargs = defaults.set_general(kwargs, fnames)
 
     #Get "together"
-    _, fixed, p_fix, _, _, _, _, _, _, _, _, _, together, rm_type = defaults.set_javelin(javelin_params, fnames)
+    _, fixed, p_fix, _, _, _, _, _, _, _, _, _, together, rm_type = defaults.set_javelin(javelin_params, len(fnames) )
 
 
     make_directories(output_dir, line_names, together)
