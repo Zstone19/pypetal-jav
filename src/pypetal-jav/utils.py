@@ -22,10 +22,9 @@ import pypetal_jav.defaults as dft
 
 def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
 
-    javelin_params = dft.set_javelin(javelin_params, ret_dict=True)
-
-    new_params = javelin_params.copy()
     nlc = len(drw_rej_res['reject_data'])
+    javelin_params = dft.set_javelin(javelin_params, nlc, ret_dict=True)
+    new_params = javelin_params.copy()
 
     drw_sigma = np.median(drw_rej_res['sigmas'][0])
     drw_tau = np.median(drw_rej_res['taus'][0])

@@ -113,7 +113,7 @@ def set_general(input_args, fnames):
 
 
 
-def set_javelin(input_args, fnames, ret_dict=False):
+def set_javelin(input_args, nlc, ret_dict=False):
 
     default_kwargs = {
         'lagtobaseline': 0.3,
@@ -160,26 +160,26 @@ def set_javelin(input_args, fnames, ret_dict=False):
     if not together:
 
         if fixed is not None:
-            if len(fixed) < len(fnames)-1:
+            if len(fixed) < nlc-1:
 
                 fixed_og = fixed
                 p_fix_og = p_fix
 
                 fixed = []
                 p_fix = []
-                for i in range(len(fnames)-1):
+                for i in range(nlc-1):
                     fixed.append(fixed_og)
                     p_fix.append(p_fix_og)
 
         else:
-            fixed = np.full( len(fnames)-1, None )
-            p_fix = np.full( len(fnames)-1, None )
+            fixed = np.full( nlc-1, None )
+            p_fix = np.full( nlc-1, None )
 
-        assert len(fixed) == len(fnames)-1
+        assert len(fixed) == nlc-1
 
     else:
         if fixed is not None:
-            assert len(fixed) == 2 + 3*( len(fnames) - 1 )
+            assert len(fixed) == 2 + 3*( nlc - 1 )
 
 
     if ret_dict:
