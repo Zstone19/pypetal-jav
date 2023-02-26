@@ -14,11 +14,15 @@ from javelin.lcio import writelc
 from javelin.lcmodel import Cont_Model, Pmap_Model, Rmap_Model
 from javelin.zylc import get_data
 
+import pypetal_jav.defaults as dft
+
 
 
 
 
 def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
+
+    javelin_params = dft.set_javelin(javelin_params, ret_dict=True)
 
     new_params = javelin_params.copy()
     nlc = len(drw_rej_res['reject_data'])

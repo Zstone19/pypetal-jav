@@ -113,7 +113,7 @@ def set_general(input_args, fnames):
 
 
 
-def set_javelin(input_args, fnames):
+def set_javelin(input_args, fnames, ret_dict=False):
 
     default_kwargs = {
         'lagtobaseline': 0.3,
@@ -182,6 +182,25 @@ def set_javelin(input_args, fnames):
             assert len(fixed) == 2 + 3*( len(fnames) - 1 )
 
 
-    return lagtobaseline, fixed, p_fix, subtract_mean, \
-        nwalkers, nburn, nchain, output_chains, \
-            output_burn, output_logp, nbin, metric, together, rm_type
+    if ret_dict:
+        return {
+            'lagtobaseline': lagtobaseline,
+            'fixed': fixed,
+            'p_fix': p_fix,
+            'subtract_mean': subtract_mean,
+            'nwalkers': nwalkers,
+            'nburn': nburn,
+            'nchain': nchain,
+            'output_chains': output_chains,
+            'output_burn': output_burn,
+            'output_logp': output_logp,
+            'nbin': nbin,
+            'metric': metric,
+            'together': together,
+            'rm_type': rm_type
+        }
+
+    else:
+        return lagtobaseline, fixed, p_fix, subtract_mean, \
+            nwalkers, nburn, nchain, output_chains, \
+                output_burn, output_logp, nbin, metric, together, rm_type
