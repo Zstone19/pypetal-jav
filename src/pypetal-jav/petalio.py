@@ -29,7 +29,7 @@ def make_directories(output_dir, line_names, together):
 
 
 
-def write_data(arr, fname, header=None):
+def write_data(arr, fname, header=None, delimiter=','):
 
     arr = np.array(arr, dtype=object)
 
@@ -50,7 +50,7 @@ def write_data(arr, fname, header=None):
 
                 string = "{},".format(arr[0][i])
                 for j in range(1, cols-1):
-                    string += "{},".format(arr[j][i])
+                    string += "{}".format(arr[j][i]) + delimiter
 
                 string += "{}\n".format(arr[-1][i])
 

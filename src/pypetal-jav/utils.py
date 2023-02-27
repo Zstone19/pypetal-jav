@@ -10,11 +10,11 @@ import numpy as np
 from astropy.table import Table
 from scipy.stats import binned_statistic
 
-from javelin.lcio import writelc
 from javelin.lcmodel import Cont_Model, Pmap_Model, Rmap_Model
 from javelin.zylc import get_data
 
 import pypetal_jav.defaults as dft
+from pypetal_jav.petalio import write_data
 
 
 
@@ -187,17 +187,14 @@ def run_javelin(cont_fname, line_fnames, line_names,
 
     #Deal with csv files
     xi, yi, erri = np.loadtxt(cont_fname, delimiter=',', unpack=True, usecols=[0,1,2])
-    writelc( [[xi, yi, erri]] , output_dir + 'cont_lcfile.dat' )
+    write_data( [xi, yi, erri] , output_dir + 'cont_lcfile.dat', delimiter='\t' )
 
-    tot_lc_arr = []
-    for i in range(len(total_fnames)):
+    for i in range(len(total_fnames[1:])):
         xi, yi, erri = np.loadtxt(total_fnames[i], delimiter=',', unpack=True, usecols=[0,1,2])
-        tot_lc_arr.append( [xi, yi, erri] )
-
-    writelc( tot_lc_arr, output_dir + 'tot_lcfile.dat' )
+        write_data( [xi, yi, erri], output_dir + line_names[i+1] + '_lcfile.dat', delimiter='\t' )
 
     cont_fname = output_dir + 'cont_lcfile.dat'
-    total_fnames = output_dir + 'tot_lcfile.dat'
+    total_fnames = np.concatenate( [ [cont_fname], [output_dir + x + '_lcfile.dat' for x in line_names[1:] ]])
 
     con_dat = get_data(cont_fname, names=[total_names[0]], set_subtractmean=subtract_mean)
     tot_dat = get_data(total_fnames, names=total_names, set_subtractmean=subtract_mean)
