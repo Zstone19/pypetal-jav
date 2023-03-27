@@ -160,7 +160,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
     if not together:
 
         if fixed is not None:
-            if len(fixed) < nlc-1:
+            if len(fixed) != nlc-1:
 
                 fixed_og = fixed
                 p_fix_og = p_fix
