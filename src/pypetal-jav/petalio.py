@@ -48,7 +48,7 @@ def write_data(arr, fname, header=None, delimiter=','):
 
             for i in range(rows):
 
-                string = "{},".format(arr[0][i])
+                string = "{}".format(arr[0][i]) + delimiter
                 for j in range(1, cols-1):
                     string += "{}".format(arr[j][i]) + delimiter
 
