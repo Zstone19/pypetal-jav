@@ -190,7 +190,7 @@ def run_javelin(cont_fname, line_fnames, line_names,
     write_data( [xi, yi, erri] , output_dir + 'cont_lcfile.dat', delimiter='\t' )
 
     for i in range(len(total_fnames[1:])):
-        xi, yi, erri = np.loadtxt(total_fnames[i], delimiter=',', unpack=True, usecols=[0,1,2])
+        xi, yi, erri = np.loadtxt(total_fnames[i+1], delimiter=',', unpack=True, usecols=[0,1,2])
         write_data( [xi, yi, erri], output_dir + line_names[i+1] + '_lcfile.dat', delimiter='\t' )
 
     cont_fname = output_dir + 'cont_lcfile.dat'
