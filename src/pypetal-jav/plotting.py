@@ -8,6 +8,19 @@ import palettable
 from matplotlib.colors import ListedColormap
 
 
+mpl.rcParams['xtick.minor.visible'] = True
+mpl.rcParams['xtick.top'] = True
+mpl.rcParams['xtick.direction'] = 'in'
+
+mpl.rcParams['ytick.minor.visible'] = True
+mpl.rcParams['ytick.right'] = True
+mpl.rcParams['ytick.direction'] = 'in'
+
+mpl.rcParams["figure.autolayout"] = False
+
+mpl.rcParams['savefig.dpi'] = 300
+mpl.rcParams['savefig.format'] = 'pdf'
+
 
 def plot_javelin_hist(res, fixed=None, nbin=50,
                       time_unit='d',
