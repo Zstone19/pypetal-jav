@@ -60,6 +60,10 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
             fixed_tot[i,1] = 0
             p_fix_tot[i,1] = np.log(drw_tau)
 
+        if nlc == 2:
+            fixed_tot = [fixed_tot]
+            p_fix_tot = [p_fix_tot]
+
 
     new_params['fixed'] = fixed_tot
     new_params['p_fix'] = p_fix_tot
