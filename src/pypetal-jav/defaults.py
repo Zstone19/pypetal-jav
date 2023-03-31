@@ -182,6 +182,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
         if fixed is not None:
             assert len(fixed) == 2 + 3*( nlc - 1 )
 
+    print(fixed)
 
     if ret_dict:
         return {
