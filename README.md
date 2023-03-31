@@ -1,4 +1,6 @@
 # pyPETaL-jav
+[![PyPI](https://img.shields.io/pypi/v/pypetal-jav)](https://img.shields.io/pypi/v/pypetal-jav)
+
 The JAVELIN module for pyPetal.
 
 ## Installation
