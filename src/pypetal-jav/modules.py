@@ -29,6 +29,8 @@ def javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs,
     #--------------------------------------------------
     #Read kwargs
 
+    print(line_names)
+    print(line_fnames)
     lagtobaseline, fixed, p_fix, subtract_mean, \
         nwalkers, nburn, nchain, output_chains, \
             output_burn, output_logp, nbin, metric, \
