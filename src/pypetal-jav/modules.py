@@ -34,8 +34,6 @@ def javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs,
             output_burn, output_logp, nbin, metric, \
                 together, rm_type = defaults.set_javelin( kwargs, len(line_names) )
 
-    print(fixed)
-
     #--------------------------------------------------
     #Account for parameters if javelin['together'] = False
     if not together:

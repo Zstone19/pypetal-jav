@@ -150,6 +150,8 @@ def set_javelin(input_args, nlc, ret_dict=False):
     metric = params['metric']
     together = params['together']
     rm_type = params['rm_type']
+    
+    print(fixed)
 
     if (rm_type == 'phot') & (together):
         print('ERROR: JAVELIN cannot do phtotometric RM with more than two lines.')
