@@ -158,8 +158,6 @@ def set_javelin(input_args, nlc, ret_dict=False):
         print('Setting together=False')
         together = False
 
-    print(fixed)
-
     if not together:
 
         if fixed is not None:

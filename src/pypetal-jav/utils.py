@@ -1,21 +1,10 @@
-import glob
-import os
-
-import astropy.units as u
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
-
 import numpy as np
-from astropy.table import Table
-from scipy.stats import binned_statistic
 
 from javelin.lcmodel import Cont_Model, Pmap_Model, Rmap_Model
 from javelin.zylc import get_data
 
 import pypetal_jav.defaults as dft
 from pypetal_jav.petalio import write_data
-
 
 
 
@@ -54,8 +43,6 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
     else:        
         fixed_tot = np.ones( ( nlc-1, 2 + ntophat ), dtype=int )
         p_fix_tot = np.ones( ( nlc-1, 2 + ntophat ) )
-
-        print(javelin_params['fixed'])
 
         if javelin_params['fixed'] is not None:
             for i in range(nlc-1):

@@ -2,12 +2,11 @@ import os
 import glob
 
 import numpy as np
-from astropy.table import Table
 
 import pypetal_jav.modules as modules
 
 from pypetal_jav import defaults
-from pypetal_jav.petalio import make_directories, write_data
+from pypetal_jav.petalio import make_directories
 from pypetal_jav.utils import fix_jav_params_after_ufj
 
 
@@ -48,24 +47,9 @@ def run_pipeline(output_dir, line_names=None,
     general_kwargs = defaults.set_general(kwargs, fnames)
 
     #Get "together"
-    _, fixed, p_fix, _, _, _, _, _, _, _, _, _, together, rm_type = defaults.set_javelin(javelin_params, len(fnames) )
-
+    _, _, _, _, _, _, _, _, _, _, _, _, together, _ = defaults.set_javelin(javelin_params, len(fnames) )
 
     make_directories(output_dir, line_names, together)
-
-
-    javelin_params['fixed'] = fixed
-    javelin_params['p_fix'] = p_fix
-
-    if rm_type == 'spec':
-        if together:
-            nfixed = 2 + 3*( len(fnames)-1 )
-        else:
-            nfixed = 5
-    elif rm_type == 'phot':
-        nfixed = 6
-
-
 
     #Name lines if unnamed
     if line_names is None:
@@ -76,7 +60,6 @@ def run_pipeline(output_dir, line_names=None,
 
     if use_for_javelin:
         javelin_params = fix_jav_params_after_ufj(javelin_params, drw_rej_res)
-
 
     javelin_res = modules.javelin_tot(cont_fname, line_fnames, line_names, output_dir, general_kwargs, javelin_params)
 
