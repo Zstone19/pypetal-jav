@@ -158,6 +158,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
         print('Setting together=False')
         together = False
 
+    print(fixed)
 
     if not together:
 
@@ -169,7 +170,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
 
                 fixed = []
                 p_fix = []
-                for i in range(nlc-1):
+                for _ in range(nlc-1):
                     fixed.append(fixed_og)
                     p_fix.append(p_fix_og)
 
