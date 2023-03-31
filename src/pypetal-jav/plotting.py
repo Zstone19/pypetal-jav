@@ -6,7 +6,7 @@ import numpy as np
 import palettable
 from matplotlib.colors import ListedColormap
 
-mpl.use('Agg')
+#mpl.use('Agg')
 mpl.rcParams['xtick.minor.visible'] = True
 mpl.rcParams['xtick.top'] = True
 mpl.rcParams['xtick.direction'] = 'in'
