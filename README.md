@@ -10,6 +10,7 @@ The JAVELIN module for pyPetal.
 ## Installation
 pyPetal-jav is available on PyPI and can be installed with ``pip``:
 ```
+    pip install --no-deps pypetal-jav
     pip install pypetal-jav
 ```
 
