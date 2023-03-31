@@ -56,7 +56,9 @@ def set_general(input_args, fnames):
             len_lag_bounds = 1
         else:
             len_lag_bounds = 2
-
+            
+    if lag_bounds is None:
+        lag_bounds = [None] * (len(fnames)-1)
 
     if len_lag_bounds != len(fnames)-1:
 
