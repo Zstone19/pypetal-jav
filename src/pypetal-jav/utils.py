@@ -64,6 +64,7 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
             fixed_tot = [fixed_tot]
             p_fix_tot = [p_fix_tot]
 
+    print(fixed_tot)
 
     new_params['fixed'] = fixed_tot
     new_params['p_fix'] = p_fix_tot
