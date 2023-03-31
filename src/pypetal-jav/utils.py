@@ -12,7 +12,6 @@ from pypetal_jav.petalio import write_data
 def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
 
     nlc = len(drw_rej_res['reject_data'])
-    print(nlc)
     javelin_params = dft.set_javelin(javelin_params, nlc, ret_dict=True)
     new_params = javelin_params.copy()
 
