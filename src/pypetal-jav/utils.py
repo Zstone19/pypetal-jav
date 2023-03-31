@@ -23,7 +23,6 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
     elif javelin_params['rm_type'] == 'phot':
         ntophat = 4
 
-    print(javelin_params['fixed'])
 
     if javelin_params['together']:
 
@@ -61,14 +60,7 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
 
             fixed_tot[i,1] = 0
             p_fix_tot[i,1] = np.log(drw_tau)
-            
-        print(fixed_tot)
 
-        if (nlc == 2) & ( len(fixed_tot) != 2 ):
-            fixed_tot = [fixed_tot]
-            p_fix_tot = [p_fix_tot]
-
-    print(fixed_tot)
 
     new_params['fixed'] = fixed_tot
     new_params['p_fix'] = p_fix_tot
