@@ -151,7 +151,7 @@ def set_javelin(input_args, nlc, ret_dict=False):
     together = params['together']
     rm_type = params['rm_type']
 
-
+    print(nlc)
 
     if (rm_type == 'phot') & (together):
         print('ERROR: JAVELIN cannot do phtotometric RM with more than two lines.')
@@ -182,7 +182,6 @@ def set_javelin(input_args, nlc, ret_dict=False):
         if fixed is not None:
             assert len(fixed) == 2 + 3*( nlc - 1 )
 
-    print(fixed, nlc-1)
 
     if ret_dict:
         return {
