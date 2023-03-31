@@ -155,6 +155,8 @@ def set_javelin(input_args, nlc, ret_dict=False):
         print('ERROR: JAVELIN cannot do phtotometric RM with more than two lines.')
         print('Setting together=False')
         together = False
+        
+    print(fixed)
 
     if not together:
 
