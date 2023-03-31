@@ -1,7 +1,7 @@
 from setuptools import setup
 
 NAME = 'pypetal-jav'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 URL = 'https://github.com/Zstone19/pypetal-jav'
 
 AUTHOR = 'Zachary Stone'
