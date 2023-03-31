@@ -23,6 +23,8 @@ def fix_jav_params_after_ufj(javelin_params, drw_rej_res):
     elif javelin_params['rm_type'] == 'phot':
         ntophat = 4
 
+    print(javelin_params['fixed'])
+
     if javelin_params['together']:
 
         if javelin_params['fixed'] is None:
