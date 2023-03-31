@@ -1,5 +1,5 @@
-import matplotlib as mpl
-mpl.use('Agg')
+import matplotlib
+matplotlib.use('Agg')
 
 import corner
 import javelin.lcmodel
@@ -8,7 +8,7 @@ import numpy as np
 import palettable
 from matplotlib.colors import ListedColormap
 
-
+import matplotlib as mpl
 mpl.rcParams['xtick.minor.visible'] = True
 mpl.rcParams['xtick.top'] = True
 mpl.rcParams['xtick.direction'] = 'in'
