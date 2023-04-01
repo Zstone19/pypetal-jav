@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use('Agg')
+mpl.rcParams['backend'] = 'Agg' 
 
 import corner
 import javelin.lcmodel
