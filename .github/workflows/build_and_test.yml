@@ -45,7 +45,9 @@ jobs:
 
     #Run tests
     - name: Test with pytest-cov
-      run: pytest . --cov=pypetal --cov-report=xml
+      run: |
+        pip install pytest-cov
+        pytest . --cov=pypetal --cov-report=xml
 
     #Upload to Codecov
     - name: Upload coverage reports to Codecov
