@@ -1,0 +1,56 @@
+name: Build and test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    stretegy: 
+      fail-fast: false
+      matrix:
+        python-version: ["2.7"]
+
+
+    steps:
+    #Checkout repo
+    - uses: actions/checkout@v3
+
+    #Set up python
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    #Install pypetal-jav
+    - name: Install pypetal-jav
+      run: |
+        sudo apt install gfortran
+        pip install -U -I numpy
+        python -m pip install -U setuptools
+        python -m pip install -U -I .
+
+    #Grab data from pypetal
+    - name: Install pypetal
+      run: |
+        git clone https://github.com/Zstone19/pypetal
+        mkdir for_jav
+        cp -r pypetal/for_jav/* for_jav/
+        rm -r -f pypetal
+
+    #Run tests
+    - name: Test with pytest-cov
+      run: pytest . --cov=pypetal --cov-report=xml
+
+    #Upload to Codecov
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} 
+        file: ./coverage.xml
+        fail_ci_if_error: true
