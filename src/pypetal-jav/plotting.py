@@ -1,4 +1,4 @@
-import matplotlib
+import matplotlib as mpl
 mpl.rcParams['backend'] = 'Agg' 
 
 import corner
