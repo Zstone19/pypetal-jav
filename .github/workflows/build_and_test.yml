@@ -46,6 +46,7 @@ jobs:
     #Run tests
     - name: Test with pytest-cov
       run: |
+        echo "backend: Agg" > ~/.config/matplotlib/matplotlibrc
         pip install pytest-cov
         pytest . --cov=pypetal --cov-report=xml
 

@@ -8,6 +8,9 @@ The JAVELIN module for pyPetal.
 
 
 ## Installation
+Requirements not installed with ``pip`` or ``setup.py``:
+* A Fortran compiler
+
 pyPetal-jav is available on PyPI and can be installed with ``pip``:
 ```
     pip install --no-deps pypetal-jav
