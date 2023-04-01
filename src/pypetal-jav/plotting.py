@@ -1,5 +1,5 @@
 import matplotlib as mpl
-mpl.use('agg', warn=False, force=True)
+mpl.use('Agg', warn=False, force=True)
 
 import corner
 import javelin.lcmodel

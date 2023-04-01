@@ -46,6 +46,7 @@ jobs:
     #Run tests
     - name: Test with pytest-cov
       run: |
+        export MPLBACKEND=agg
         pip install pytest-cov
         pytest . --cov=pypetal
 
