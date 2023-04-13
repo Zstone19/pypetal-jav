@@ -246,6 +246,16 @@ def plot_javelin_bestfit(res, bestfit_model, time_unit='d', lc_unit='mag', fname
                         bestfit_model.mlist[i]+bestfit_model.blist[i]-bestfit_model.elist[i],
                         color=colors[i % 9], alpha=.3, zorder=-2)
 
+        if lc_unit[i] == 'mag':
+            ytxt = 'Magnitude'
+            ax[i].invert_yaxis()
+
+        elif (lc_unit[i] == 'Arbitrary Units') or (lc_unit[i] == ''):
+            ytxt = 'Flux'
+        else:
+            ytxt = 'Flux [' + str(lc_unit[i]) + ']'
+
+
 
         y1, y2 = ax[i].get_ylim()
         y2 = y1 + (y2 - y1)*1.25
@@ -258,20 +268,9 @@ def plot_javelin_bestfit(res, bestfit_model, time_unit='d', lc_unit='mag', fname
         ax[i].tick_params('both', which='major', length=8)
         ax[i].tick_params('both', which='minor', length=5)
 
-        ax[i].legend( bbox_to_anchor=(1.13, 1.03), fontsize=12 )
+        # ax[i].legend( bbox_to_anchor=(1.13, 1.03), fontsize=12 )
 
-
-
-        if lc_unit[i] == 'mag':
-            ytxt = 'Magnitude'
-            ax[i].invert_yaxis()
-
-        elif lc_unit[i] == 'Arbitrary Units':
-            ytxt = 'Flux'
-        else:
-            ytxt = 'Flux [' + str(lc_unit[i]) + ']'
-
-        ax[i].set_ylabel( ytxt, fontsize=22, va='center' )
+        ax[i].text( -.1, .5, ytxt, transform=ax[i].transAxes, rotation='vertical', ha='left', va='center', fontsize=22 )
 
     ax[-1].set_xlabel('Time [' + str(time_unit) + ']', fontsize=20)
 
