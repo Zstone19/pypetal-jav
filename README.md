@@ -2,6 +2,8 @@
 The JAVELIN module for pyPetal.
 
 [![PyPI](https://img.shields.io/pypi/v/pypetal-jav)](https://img.shields.io/pypi/v/pypetal-jav)
+[![pypi-downloads](https://img.shields.io/pypi/dm/pypetal-jav)](https://img.shields.io/pypi/dm/pypetal-jav)
+
 
 
 
